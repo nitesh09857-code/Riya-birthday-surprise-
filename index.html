@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffdeeb">
+<title>For Riya 💗</title>
+<style>
+:root{--pink:#ff4f91;--deep:#a52d60;--pale:#fff1f7}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;display:grid;place-items:center;padding:18px;overflow:hidden;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--deep);background:linear-gradient(145deg,#fff5fa,#ffd9e9 48%,#ffc3dc)}
+body:before,body:after{content:"";position:fixed;width:260px;height:260px;border-radius:50%;filter:blur(3px);opacity:.35;z-index:0}
+body:before{background:#fff;top:-100px;left:-80px}body:after{background:#ff8dbb;right:-100px;bottom:-100px}
+.float{position:fixed;bottom:-50px;z-index:0;pointer-events:none;opacity:.45;animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-120vh) rotate(35deg);opacity:0}}
+.card{position:relative;z-index:1;width:min(100%,430px);min-height:480px;padding:30px 23px 25px;border:1px solid #ffffffc9;border-radius:30px;background:#ffffffd9;box-shadow:0 24px 70px #a72e5d24;text-align:center;backdrop-filter:blur(12px);display:flex;flex-direction:column;justify-content:center}
+.topline{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#c55a86;font-weight:800}
+.emoji{font-size:52px;line-height:1.2;margin:14px 0 8px;filter:drop-shadow(0 5px 7px #ff9fc155)}
+h1{font-size:clamp(27px,7vw,36px);line-height:1.15;margin:7px 0 12px;letter-spacing:-.7px}
+p{font-size:16px;line-height:1.65;margin:8px 0}
+input{width:100%;border:1.5px solid #f6b5ce;border-radius:15px;padding:15px;background:#fffafd;color:var(--deep);font-size:19px;text-align:center;letter-spacing:5px;outline:none;margin:13px 0 8px}
+input:focus{border-color:var(--pink);box-shadow:0 0 0 4px #ff4f911b}
+button{font:inherit;font-weight:800;border:0;border-radius:999px;padding:14px 23px;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 18px #a52d6020}
+button:active{transform:scale(.96)}
+.primary{color:white;background:linear-gradient(135deg,#ff68a4,#ee347d)}
+.soft{color:var(--deep);background:#ffe1ed}
+.hidden{display:none!important}
+.err{min-height:22px;color:#c52b68;font-size:13px}
+.hint{font-size:12px;color:#b16a88;margin-top:13px}
+.btnrow{position:relative;min-height:105px;display:flex;align-items:center;justify-content:center;gap:14px;margin-top:12px}
+#noBtn{background:#ffe1ed;color:#a52d60;position:relative}
+.note{background:#fff4f9;border:1px dashed #f2a8c5;border-radius:18px;padding:14px;margin:15px 0}
+.footer{font-size:12px;color:#c27a99;margin-top:17px}
+.pill{display:inline-block;background:#fff0f6;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:700;margin-top:7px}
+</style>
+</head>
+<body>
+<div class="float" style="left:8%;font-size:24px;animation-duration:9s">♡</div>
+<div class="float" style="left:23%;font-size:17px;animation-duration:12s;animation-delay:-5s">♥</div>
+<div class="float" style="left:78%;font-size:28px;animation-duration:10s;animation-delay:-2s">♡</div>
+<div class="float" style="left:91%;font-size:18px;animation-duration:13s;animation-delay:-7s">♥</div>
+<main class="card">
+  <section id="gate">
+    <div class="topline">A tiny surprise, just for you</div>
+    <div class="emoji">🔐💗</div>
+    <h1>Hey, Riya!</h1>
+    <p>Someone made a little surprise for you.<br>Can you unlock it? ✨</p>
+    <input id="pass" type="password" inputmode="numeric" maxlength="12" placeholder="Secret password" aria-label="Secret password">
+    <div class="err" id="err" aria-live="polite"></div>
+    <button class="primary" id="unlock">Unlock my surprise 💌</button>
+    <div class="hint">Hint: a special number you might know 😉</div>
+  </section>
+  <section id="ask" class="hidden">
+    <div class="topline">One very important question</div>
+    <div class="emoji">🥹💞</div>
+    <h1>Riya, do you love me?</h1>
+    <p>Choose your answer carefully… 🙈💕</p>
+    <div class="btnrow" id="btnrow">
+      <button class="primary" id="yes">YES ❤️</button>
+      <button id="noBtn">NO 🙈</button>
+    </div>
+    <div class="pill">Made with a little extra love ✨</div>
+  </section>
+  <section id="wish" class="hidden">
+    <div class="topline">Today is all about you</div>
+    <div class="emoji">🎂🌷</div>
+    <h1>Happy Birthday, Riya! 💖</h1>
+    <div class="note">
+      <p>Even though miles keep us apart, you still make my days brighter. I wish I could be there to see your smile and wish you in person. 🫶</p>
+      <p>May your new year bring you happiness, peace, laughter, and all the little things your heart wishes for. Keep shining, birthday girl. ✨</p>
+    </div>
+    <p><strong>You’re my favourite person. Happy Birthday! ❤️</strong></p>
+    <div class="emoji" style="font-size:35px">💌 🧸 💗</div>
+    <button class="soft" id="again">Replay surprise ↺</button>
+  </section>
+  <div class="footer">A little page made especially for Riya ♡</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+function show(id){['gate','ask','wish'].forEach(s=>$(s).classList.toggle('hidden',s!==id))}
+function unlock(){if($('pass').value==='0710'){show('ask');$('err').textContent=''}else{$('err').textContent='Not quite! Try again 💗';$('pass').value='';$('pass').focus()}}
+$('unlock').addEventListener('click',unlock);
+$('pass').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
+function dodge(){
+ const b=$('noBtn'),r=b.getBoundingClientRect(),pad=14;
+ b.style.position='fixed';b.style.zIndex=5;
+ const x=pad+Math.random()*Math.max(1,innerWidth-r.width-pad*2);
+ const y=pad+Math.random()*Math.max(1,innerHeight-r.height-pad*2);
+ b.style.left=x+'px';b.style.top=y+'px';
+}
+$('noBtn').addEventListener('pointerenter',dodge);
+$('noBtn').addEventListener('click',dodge);
+$('noBtn').addEventListener('touchstart',e=>{e.preventDefault();dodge()},{passive:false});
+$('yes').addEventListener('click',()=>show('wish'));
+$('again').addEventListener('click',()=>{show('gate');$('pass').value='';$('err').textContent='';$('noBtn').removeAttribute('style')});
+</script>
+</body>
+</html>
